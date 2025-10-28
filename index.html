@@ -22,8 +22,24 @@
             --color-accent-5: #95E6CB;
         }
 
+        [data-theme="light"] {
+            /* Ayu Light */
+            --bg-primary: #FAFAFA;
+            --bg-secondary: #FFFFFF;
+            --bg-tertiary: #F3F4F5;
+            --border-color: #E7E8E9;
+            --border-hover: #CBCCC6;
+            --text-primary: #5C6166;
+            --text-secondary: #828C99;
+            --color-accent-1: #F29718;
+            --color-accent-2: #399EE6;
+            --color-accent-3: #A37ACC;
+            --color-accent-4: #E6B673;
+            --color-accent-5: #7FD962;
+        }
+
         @media (prefers-color-scheme: light) {
-            :root {
+            :root:not([data-theme="dark"]) {
                 /* Ayu Light */
                 --bg-primary: #FAFAFA;
                 --bg-secondary: #FFFFFF;
@@ -58,6 +74,38 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--color-accent-2);
+            background: var(--bg-tertiary);
+        }
+
+        .theme-toggle::before {
+            content: '[ ';
+            color: var(--color-accent-5);
+        }
+
+        .theme-toggle::after {
+            content: ' ]';
+            color: var(--color-accent-5);
         }
 
         .header {
@@ -285,8 +333,42 @@
             51%, 100% { opacity: 0; }
         }
     </style>
+    <script>
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const html = document.documentElement;
+            const themeToggle = document.getElementById('theme-toggle');
+            
+            // Check for saved theme preference or default to system preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                html.setAttribute('data-theme', savedTheme);
+            }
+            
+            updateToggleButton();
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateToggleButton();
+            });
+            
+            function updateToggleButton() {
+                const theme = html.getAttribute('data-theme');
+                if (theme === 'light') {
+                    themeToggle.textContent = '☀ light';
+                } else {
+                    themeToggle.textContent = '☾ dark';
+                }
+            }
+        });
+    </script>
 </head>
 <body>
+    <button id="theme-toggle" class="theme-toggle">☾ dark</button>
     <div class="container">
         <div class="header">
             <div class="header-text">
