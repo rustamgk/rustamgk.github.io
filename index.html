@@ -6,6 +6,40 @@
     <title>Rustam Galimyanov</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
+        :root {
+            /* Ayu Mirage (Dark) - Default */
+            --bg-primary: #1F2430;
+            --bg-secondary: #232834;
+            --bg-tertiary: #2D3640;
+            --border-color: #2D3640;
+            --border-hover: #3E4B59;
+            --text-primary: #CBCCC6;
+            --text-secondary: #707A8C;
+            --color-accent-1: #FFCC66;
+            --color-accent-2: #5CCFE6;
+            --color-accent-3: #D4BFFF;
+            --color-accent-4: #FFD580;
+            --color-accent-5: #95E6CB;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                /* Ayu Light */
+                --bg-primary: #FAFAFA;
+                --bg-secondary: #FFFFFF;
+                --bg-tertiary: #F3F4F5;
+                --border-color: #E7E8E9;
+                --border-hover: #CBCCC6;
+                --text-primary: #5C6166;
+                --text-secondary: #828C99;
+                --color-accent-1: #F29718;
+                --color-accent-2: #399EE6;
+                --color-accent-3: #A37ACC;
+                --color-accent-4: #E6B673;
+                --color-accent-5: #7FD962;
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +48,8 @@
 
         body {
             font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            background: #1F2430;
-            color: #CBCCC6;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.8;
             padding: 40px 20px;
             min-height: 100vh;
@@ -40,7 +74,7 @@
         .ascii-avatar {
             font-size: 0.35em;
             line-height: 1.1;
-            color: #5CCFE6;
+            color: var(--color-accent-2);
             white-space: pre;
             flex-shrink: 0;
         }
@@ -56,26 +90,26 @@
         }
 
         .prompt {
-            color: #95E6CB;
+            color: var(--color-accent-5);
             margin-right: 10px;
         }
 
         h1 {
             font-size: 2.5em;
-            color: #FFCC66;
+            color: var(--color-accent-1);
             margin-bottom: 10px;
             font-weight: normal;
         }
 
         .subtitle {
             font-size: 1.1em;
-            color: #5CCFE6;
+            color: var(--color-accent-2);
             margin-left: 20px;
             margin-bottom: 20px;
         }
 
         .description {
-            color: #CBCCC6;
+            color: var(--text-primary);
             margin-left: 20px;
             margin-bottom: 40px;
             line-height: 1.8;
@@ -87,14 +121,14 @@
 
         h2 {
             font-size: 1.5em;
-            color: #D4BFFF;
+            color: var(--color-accent-3);
             margin-bottom: 20px;
             font-weight: normal;
         }
 
         h2::before {
             content: '> ';
-            color: #95E6CB;
+            color: var(--color-accent-5);
         }
 
         .content {
@@ -107,40 +141,40 @@
 
         .tech-list li {
             margin-bottom: 10px;
-            color: #CBCCC6;
+            color: var(--text-primary);
         }
 
         .tech-list li::before {
             content: '- ';
-            color: #FFD580;
+            color: var(--color-accent-4);
             margin-right: 5px;
         }
 
         .experience-item {
             margin-bottom: 30px;
             padding-left: 20px;
-            border-left: 2px solid #2D3640;
+            border-left: 2px solid var(--bg-tertiary);
         }
 
         .experience-title {
-            color: #FFCC66;
+            color: var(--color-accent-1);
             font-size: 1.1em;
             margin-bottom: 5px;
         }
 
         .experience-company {
-            color: #5CCFE6;
+            color: var(--color-accent-2);
             margin-bottom: 5px;
         }
 
         .experience-date {
-            color: #707A8C;
+            color: var(--text-secondary);
             font-size: 0.9em;
             margin-bottom: 10px;
         }
 
         .experience-desc {
-            color: #CBCCC6;
+            color: var(--text-primary);
         }
 
         .links {
@@ -150,7 +184,7 @@
         }
 
         .link {
-            color: #5CCFE6;
+            color: var(--color-accent-2);
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
@@ -158,18 +192,18 @@
 
         .link::before {
             content: '→ ';
-            color: #95E6CB;
+            color: var(--color-accent-5);
             margin-right: 5px;
         }
 
         .link:hover {
-            color: #95E6CB;
+            color: var(--color-accent-5);
             padding-left: 5px;
         }
 
         .command-line {
-            background: #232834;
-            border: 1px solid #2D3640;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
             border-radius: 5px;
             padding: 15px 20px;
             margin: 20px 0;
@@ -178,7 +212,7 @@
 
         .command-line::before {
             content: '$ ';
-            color: #95E6CB;
+            color: var(--color-accent-5);
         }
 
         .skills-grid {
@@ -189,14 +223,14 @@
         }
 
         .skill-category {
-            background: #232834;
-            border: 1px solid #2D3640;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
             border-radius: 5px;
             padding: 20px;
         }
 
         .skill-category h3 {
-            color: #FFD580;
+            color: var(--color-accent-4);
             font-size: 1em;
             margin-bottom: 15px;
             font-weight: normal;
@@ -207,14 +241,14 @@
         }
 
         .skill-category li {
-            color: #CBCCC6;
+            color: var(--text-primary);
             margin-bottom: 8px;
             font-size: 0.95em;
         }
 
         .skill-category li::before {
             content: '• ';
-            color: #5CCFE6;
+            color: var(--color-accent-2);
             margin-right: 5px;
         }
 
@@ -241,7 +275,7 @@
             display: inline-block;
             width: 10px;
             height: 20px;
-            background: #5CCFE6;
+            background: var(--color-accent-2);
             animation: blink 1s infinite;
             margin-left: 5px;
         }
