@@ -252,6 +252,31 @@
             padding-left: 5px;
         }
 
+        .cv-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            color: var(--color-accent-1);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .cv-link:hover {
+            border-color: var(--color-accent-1);
+            background: var(--bg-tertiary);
+            transform: translateY(-2px);
+            padding-left: 20px;
+        }
+
+        .cv-link::before {
+            content: '📄 ';
+            margin-right: 8px;
+        }
+
         .command-line {
             background: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -485,6 +510,19 @@
         </div>
 
         <div class="section">
+            <h2>projects</h2>
+            <div class="content">
+                <ul class="tech-list">
+                    <li>CME Group (Core + Globex)</li>
+                    <li>HFT Capital</li>
+                    <li>State Street Global Advisors</li>
+                    <li>Sarna Technologies</li>
+                    <li>HERE Technologies</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
             <h2>connect</h2>
             <div class="content">
                 <div class="links">
@@ -492,6 +530,7 @@
                     <a href="https://www.linkedin.com/in/rustam-galimyanov/" class="link" target="_blank" rel="noopener noreferrer">linkedin.com/in/rustam-galimyanov</a>
                     <a href="mailto:rustam.gk@gmail.com" class="link">rustam.gk@gmail.com</a>
                 </div>
+                <a href="cv_new_12_f.pdf" class="cv-link" target="_blank" rel="noopener noreferrer">Download CV</a>
             </div>
         </div>
     </div>
